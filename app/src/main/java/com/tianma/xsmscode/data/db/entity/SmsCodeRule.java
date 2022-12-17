@@ -17,7 +17,7 @@ import java.util.Objects;
 
 @Entity(
         indexes = {
-            @Index(value = "company, codeKeyword, codeRegex", unique = true)
+                @Index(value = "company, codeKeyword, codeRegex", unique = true)
         }
 )
 public class SmsCodeRule implements Parcelable {
@@ -71,7 +71,7 @@ public class SmsCodeRule implements Parcelable {
 
     @Generated(hash = 1853112924)
     public SmsCodeRule(Long id, String company, @NotNull String codeKeyword,
-            @NotNull String codeRegex) {
+                       @NotNull String codeRegex) {
         this.id = id;
         this.company = company;
         this.codeKeyword = codeKeyword;
@@ -147,7 +147,7 @@ public class SmsCodeRule implements Parcelable {
         dest.writeString(codeRegex);
     }
 
-    public static final Creator<SmsCodeRule> CREATOR = new Creator<SmsCodeRule>() {
+    public static final Creator<SmsCodeRule> CREATOR = new Creator<>() {
         @Override
         public SmsCodeRule createFromParcel(Parcel in) {
             return new SmsCodeRule(in);

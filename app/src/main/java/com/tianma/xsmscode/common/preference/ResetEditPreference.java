@@ -14,7 +14,6 @@ public class ResetEditPreference extends EditTextPreference {
 
     private String mDefaultValue;
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ResetEditPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();

@@ -43,7 +43,7 @@ public class EntityStoreManager {
                 filename = PREV_CODE_RECORD;
                 break;
             default:
-                throw new IllegalArgumentException("Unknown EntityType:" + entityType.toString());
+                throw new IllegalArgumentException("Unknown EntityType:" + entityType);
         }
         return new File(StorageUtils.getFilesDir(), filename);
     }

@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerFragment;
@@ -65,7 +66,7 @@ public class AppBlockFragment extends DaggerFragment implements AppBlockContract
         mActivity = getActivity();
 
         mAppInfoAdapter = new AppInfoAdapter(mActivity, new ArrayList<>());
-        mAppInfoAdapter.setItemCallback(new ItemCallback<AppInfo>() {
+        mAppInfoAdapter.setItemCallback(new ItemCallback<>() {
             @Override
             public void onItemClicked(View itemView, AppInfo item, int position) {
                 itemClicked(item, position);

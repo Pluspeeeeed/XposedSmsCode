@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+
 import androidx.annotation.RequiresApi;
 
 public class NotificationUtils {
@@ -13,7 +14,7 @@ public class NotificationUtils {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void createNotificationChannel(Context context, String channelId,
-                                          String channelName, int importance) {
+                                                 String channelName, int importance) {
         NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
         NotificationManager manager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);

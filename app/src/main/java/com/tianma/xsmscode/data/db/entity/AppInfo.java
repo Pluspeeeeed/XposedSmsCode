@@ -114,7 +114,7 @@ public class AppInfo implements Parcelable {
         blocked = in.readByte() != 0;
     }
 
-    public static final Creator<AppInfo> CREATOR = new Creator<AppInfo>() {
+    public static final Creator<AppInfo> CREATOR = new Creator<>() {
         @Override
         public AppInfo createFromParcel(Parcel in) {
             return new AppInfo(in);

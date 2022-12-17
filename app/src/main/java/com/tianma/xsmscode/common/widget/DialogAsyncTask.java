@@ -41,6 +41,6 @@ public abstract class DialogAsyncTask<Param, Progress, Result> extends AsyncTask
 
     @Override
     protected void onCancelled() {
-       mProgressDialog.dismiss();
+        mProgressDialog.dismiss();
     }
 }

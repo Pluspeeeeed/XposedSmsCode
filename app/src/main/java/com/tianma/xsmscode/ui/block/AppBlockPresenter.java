@@ -127,9 +127,7 @@ class AppBlockPresenter implements AppBlockContract.Presenter {
                 .toList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(appInfoList -> {
-                    mView.showData(new ArrayList<>(appInfoList));
-                }, throwable -> {
+                .subscribe(appInfoList -> mView.showData(new ArrayList<>(appInfoList)), throwable -> {
                     // ignore
                     XLog.e("", throwable);
                 });
@@ -181,14 +179,12 @@ class AppBlockPresenter implements AppBlockContract.Presenter {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(appInfoList -> {
-                    mView.onSaveSuccess();
-                }, throwable -> mView.onSaveFailed());
+                .subscribe(appInfoList -> mView.onSaveSuccess(), throwable -> mView.onSaveFailed());
         mCompositeDisposable.add(disposable);
 
     }
 
-    private Comparator<AppInfo> mComparator = new Comparator<AppInfo>() {
+    private Comparator<AppInfo> mComparator = new Comparator<>() {
         @Override
         public int compare(AppInfo o1, AppInfo o2) {
             if (o1 == null && o2 == null) {

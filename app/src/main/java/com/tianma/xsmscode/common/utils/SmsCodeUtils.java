@@ -207,11 +207,11 @@ public class SmsCodeUtils {
     private static final int LEVEL_NONE = -1;
 
     private static int getMatchLevel(String matchedStr) {
-        if (matchedStr.matches("^[0-9]{6}$"))
+        if (matchedStr.matches("^\\d{6}$"))
             return LEVEL_DIGITAL_6;
-        if (matchedStr.matches("^[0-9]{4}$"))
+        if (matchedStr.matches("^\\d{4}$"))
             return LEVEL_DIGITAL_4;
-        if (matchedStr.matches("^[0-9]*$"))
+        if (matchedStr.matches("^\\d*$"))
             return LEVEL_DIGITAL_OTHERS;
         if (matchedStr.matches("^[a-zA-Z]*$"))
             return LEVEL_CHARACTER;
@@ -220,6 +220,7 @@ public class SmsCodeUtils {
 
     /**
      * 可能的验证码是否靠近关键字；
+     *
      * @return 可能的验证码前后30个字符内是否包含验证码关键字，如果包含则返回true；否则返回false
      */
     private static boolean isNearToKeyword(String keyword, String possibleCode, String content) {

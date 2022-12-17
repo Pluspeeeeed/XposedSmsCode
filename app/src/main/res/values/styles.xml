@@ -18,7 +18,8 @@
     </style>
 
     <style name="MyPreferenceCategoryStyle" parent="@style/Preference.Category.Material">
-        <item name="android:layout" tools:ignore="PrivateResource">@layout/preference_category</item>
+        <item name="android:layout" tools:ignore="PrivateResource">@layout/preference_category
+        </item>
     </style>
 
 </resources>

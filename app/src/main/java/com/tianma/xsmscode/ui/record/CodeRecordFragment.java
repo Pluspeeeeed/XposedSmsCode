@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -84,7 +85,7 @@ public class CodeRecordFragment extends DaggerBackPressFragment implements CodeR
         List<RecordItem> records = new ArrayList<>();
 
         mAdapter = new CodeRecordAdapter(mActivity, records);
-        mAdapter.setItemCallback(new BaseItemCallback<RecordItem>() {
+        mAdapter.setItemCallback(new BaseItemCallback<>() {
             @Override
             public void onItemClicked(View itemView, RecordItem item, int position) {
                 itemClicked(item, position);

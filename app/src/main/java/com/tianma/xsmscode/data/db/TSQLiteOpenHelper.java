@@ -11,7 +11,7 @@ import com.tianma.xsmscode.data.db.entity.SmsMsgDao;
 
 import org.greenrobot.greendao.database.Database;
 
-public class TSQLiteOpenHelper extends DaoMaster.OpenHelper{
+public class TSQLiteOpenHelper extends DaoMaster.OpenHelper {
 
     public TSQLiteOpenHelper(Context context, String name) {
         super(context, name);

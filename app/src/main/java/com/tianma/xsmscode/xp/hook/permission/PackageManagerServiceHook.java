@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 import androidx.annotation.RequiresApi;
+
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
@@ -31,7 +32,6 @@ public class PackageManagerServiceHook extends BaseSubHook {
         super(classLoader);
     }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
     @Override
     public void startHook() {
         try {
@@ -44,29 +44,17 @@ public class PackageManagerServiceHook extends BaseSubHook {
     private void hookGrantPermissionsLPw() {
         Class pmsClass = XposedWrapper.findClass(CLASS_PACKAGE_MANAGER_SERVICE, mClassLoader);
         Method method;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Android 5.0 +
-            XLog.d("Hooking grantPermissionsLPw() for Android 21+");
-            method = XposedHelpers.findMethodExact(pmsClass, "grantPermissionsLPw",
-                    /* PackageParser.Package pkg */ CLASS_PACKAGE_PARSER_PACKAGE,
-                    /* boolean replace           */ boolean.class,
-                    /* String packageOfInterest  */ String.class);
-        } else {
-            // Android 4.4 +
-            XLog.d("Hooking grantPermissionsLPw() for Android 19+");
-            method = XposedHelpers.findMethodExact(pmsClass, "grantPermissionsLPw",
-                    /* PackageParser.Package pkg */ CLASS_PACKAGE_PARSER_PACKAGE,
-                    /* boolean replace           */ boolean.class);
-        }
+        // Android 5.0 +
+        XLog.d("Hooking grantPermissionsLPw() for Android 21+");
+        method = XposedHelpers.findMethodExact(pmsClass, "grantPermissionsLPw",
+                /* PackageParser.Package pkg */ CLASS_PACKAGE_PARSER_PACKAGE,
+                /* boolean replace           */ boolean.class,
+                /* String packageOfInterest  */ String.class);
 
         XposedBridge.hookMethod(method, new MethodHookWrapper() {
             @Override
             protected void after(MethodHookParam param) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    grantPermissionsLPwSinceM(param);
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    grantPermissionsLPwSinceK(param);
-                }
+                grantPermissionsLPwSinceM(param);
             }
         });
     }

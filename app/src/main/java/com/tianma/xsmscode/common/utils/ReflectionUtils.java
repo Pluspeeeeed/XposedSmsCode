@@ -8,7 +8,8 @@ import java.lang.reflect.Method;
  * Utils for reflection
  */
 public final class ReflectionUtils {
-    private ReflectionUtils() { }
+    private ReflectionUtils() {
+    }
 
     public static Class<?> getClass(ClassLoader classLoader, String name) {
         try {
@@ -84,7 +85,7 @@ public final class ReflectionUtils {
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
             if (cause instanceof RuntimeException) {
-                throw (RuntimeException)cause;
+                throw (RuntimeException) cause;
             } else {
                 throw new RuntimeException(e);
             }

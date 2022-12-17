@@ -45,7 +45,7 @@ public class JsonUtils {
     }
 
     public static <T> List<T> listFromJson(String json, Class<T> typeClass, boolean excludeExposeAnnotation) {
-        return createGson(excludeExposeAnnotation).fromJson(json, new ListOfJson<T>(typeClass));
+        return createGson(excludeExposeAnnotation).fromJson(json, new ListOfJson<>(typeClass));
     }
 
     public static <T> List<T> listFromJson(Reader json, Class<T> typeClass, boolean excludeExposeAnnotation) {
@@ -55,7 +55,7 @@ public class JsonUtils {
         } else {
             gson = new Gson();
         }
-        return gson.fromJson(json, new ListOfJson<T>(typeClass));
+        return gson.fromJson(json, new ListOfJson<>(typeClass));
     }
 
     public static class ListOfJson<T> implements ParameterizedType {

@@ -12,7 +12,8 @@ public interface ITransition {
 
     /**
      * 执行数据迁移兼容过渡逻辑
-     * @return 是否执行成功,是则返回true
+     *
+     * @return 是否执行成功, 是则返回true
      */
     boolean doTransition();
 

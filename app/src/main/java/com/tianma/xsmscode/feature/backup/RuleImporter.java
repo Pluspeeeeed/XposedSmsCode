@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * SmsCode rule importer
  */
-public class RuleImporter implements Closeable{
+public class RuleImporter implements Closeable {
 
     private InputStream mJsonStream;
 
@@ -41,20 +41,21 @@ public class RuleImporter implements Closeable{
 
     /**
      * perform import data from backup file.
+     *
      * @param context context
-     * @param retain whether it retains current rules or not.
+     * @param retain  whether it retains current rules or not.
      */
     public void doImport(Context context, boolean retain) throws BackupInvalidException {
         JsonReader jsonReader = new JsonReader(new InputStreamReader(mJsonStream));
 
         try {
             JsonElement jsonElement = new JsonParser().parse(jsonReader);
-            if(!jsonElement.isJsonObject()) {
+            if (!jsonElement.isJsonObject()) {
                 throw new BackupInvalidException();
             }
             JsonObject jsonObject = jsonElement.getAsJsonObject();
 
-            if(jsonObject.has(BackupConst.KEY_VERSION)) {
+            if (jsonObject.has(BackupConst.KEY_VERSION)) {
                 int version = jsonObject.get(BackupConst.KEY_VERSION).getAsInt();
                 if (version == 1) {
                     doImportVersion1(context, jsonObject, retain);
@@ -84,7 +85,7 @@ public class RuleImporter implements Closeable{
 
     private List<SmsCodeRule> readRuleList(JsonArray ruleArray) throws BackupInvalidException {
         List<SmsCodeRule> ruleList = new ArrayList<>();
-        for(JsonElement ruleJson : ruleArray) {
+        for (JsonElement ruleJson : ruleArray) {
             ruleList.add(readRule(ruleJson.getAsJsonObject()));
         }
         return ruleList;

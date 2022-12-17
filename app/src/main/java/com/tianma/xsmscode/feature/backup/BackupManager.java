@@ -110,9 +110,7 @@ public class BackupManager {
     }
 
     public static ImportResult importRuleList(Context context, Uri uri, boolean retain) {
-        RuleImporter ruleImporter = null;
-        try {
-            ruleImporter = new RuleImporter(context.getContentResolver().openInputStream(uri));
+        try (RuleImporter ruleImporter = new RuleImporter(context.getContentResolver().openInputStream(uri))) {
             ruleImporter.doImport(context, retain);
             return ImportResult.SUCCESS;
         } catch (IOException e) {
@@ -127,10 +125,6 @@ public class BackupManager {
         } catch (BackupInvalidException e) {
             XLog.e("Error occurs in importRuleList", e);
             return ImportResult.BACKUP_INVALID;
-        } finally {
-            if (ruleImporter != null) {
-                ruleImporter.close();
-            }
         }
     }
 

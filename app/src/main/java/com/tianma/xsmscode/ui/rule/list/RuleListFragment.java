@@ -131,7 +131,7 @@ public class RuleListFragment extends DaggerFragment implements RuleListContract
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(mSwipeToRemoveCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
-        mRuleAdapter.setItemCallback(new BaseItemCallback<SmsCodeRule>() {
+        mRuleAdapter.setItemCallback(new BaseItemCallback<>() {
             @Override
             public void onItemClicked(SmsCodeRule item, int position) {
                 mSelectedPosition = position;

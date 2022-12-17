@@ -27,7 +27,7 @@ public class ClipboardUtils {
             XLog.e("Clear failed, clipboard manager is null");
             return;
         }
-        if(cm.hasPrimaryClip()) {
+        if (cm.hasPrimaryClip()) {
             ClipDescription cd = cm.getPrimaryClipDescription();
             if (cd != null) {
                 if (cd.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {

@@ -55,7 +55,7 @@ public class Utils {
             return false;
         }
 
-        for(int i = 0; i < filename.length(); i++) {
+        for (int i = 0; i < filename.length(); i++) {
             char c = filename.charAt(i);
             if (!isValidFilenameChar(c)) {
                 return false;

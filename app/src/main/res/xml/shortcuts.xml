@@ -8,9 +8,8 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetClass="com.tianma.xsmscode.ui.record.CodeRecordActivity"
-            android:targetPackage="com.github.tianma8023.xposed.smscode"/>
-        <categories
-            android:name="android.shortcut.conversation"/>
+            android:targetPackage="com.github.tianma8023.xposed.smscode" />
+        <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
     <shortcut
@@ -21,9 +20,8 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetClass="com.tianma.xsmscode.ui.rule.CodeRulesActivity"
-            android:targetPackage="com.github.tianma8023.xposed.smscode"/>
-        <categories
-            android:name="android.shortcut.conversation"/>
+            android:targetPackage="com.github.tianma8023.xposed.smscode" />
+        <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
     <shortcut
@@ -35,9 +33,10 @@
             android:action="android.intent.action.VIEW"
             android:targetClass="com.tianma.xsmscode.ui.home.HomeActivity"
             android:targetPackage="com.github.tianma8023.xposed.smscode">
-            <extra android:name="extra_action" android:value="donate_by_alipay"/>
+            <extra
+                android:name="extra_action"
+                android:value="donate_by_alipay" />
         </intent>
-        <categories
-            android:name="android.shortcut.conversation"/>
+        <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>

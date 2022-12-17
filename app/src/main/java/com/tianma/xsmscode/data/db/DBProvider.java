@@ -79,13 +79,11 @@ public class DBProvider extends ContentProvider {
         int uriType = sUriMatcher.match(uri);
         long id;
         String path;
-        switch (uriType) {
-            case SMS_MSG_DIR:
-                id = mDatabase.insert(TABLE_SMS_MSG, null, values);
-                path = PATH_SMS_MSG + "/" + id;
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        if (uriType == SMS_MSG_DIR) {
+            id = mDatabase.insert(TABLE_SMS_MSG, null, values);
+            path = PATH_SMS_MSG + "/" + id;
+        } else {
+            throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
         if (mContext != null) {
             mContext.getContentResolver().notifyChange(uri, null);
@@ -118,12 +116,10 @@ public class DBProvider extends ContentProvider {
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         int uriType = sUriMatcher.match(uri);
         int rowsDeleted;
-        switch (uriType) {
-            case SMS_MSG_DIR:
-                rowsDeleted = mDatabase.delete(TABLE_SMS_MSG, selection, selectionArgs);
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        if (uriType == SMS_MSG_DIR) {
+            rowsDeleted = mDatabase.delete(TABLE_SMS_MSG, selection, selectionArgs);
+        } else {
+            throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
         if (rowsDeleted > 0) {
             mContext.getContentResolver().notifyChange(uri, null);

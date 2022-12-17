@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FaqFragment extends Fragment {
 
     private Context mContext;
-    
+
     public FaqFragment() {
     }
 

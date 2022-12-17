@@ -193,7 +193,7 @@ public class SettingsFragment extends BasePreferenceFragment implements
             AppBlockActivity.startMe(mActivity);
         } else if (PrefConst.KEY_VERSION.equals(key)) {
             mPresenter.checkUpdate();
-        } else if(PrefConst.KEY_PRIVACY_POLICY.equals(key)) {
+        } else if (PrefConst.KEY_PRIVACY_POLICY.equals(key)) {
             showPrivacyPolicy();
         } else {
             return false;
@@ -223,7 +223,7 @@ public class SettingsFragment extends BasePreferenceFragment implements
             mPresenter.hideOrShowLauncherIcon((Boolean) newValue);
         } else if (PrefConst.KEY_VERBOSE_LOG_MODE.equals(key)) {
             onVerboseLogModeSwitched((Boolean) newValue);
-        } else if(PrefConst.KEY_AUTO_INPUT_CODE_DELAY.equals(key)) {
+        } else if (PrefConst.KEY_AUTO_INPUT_CODE_DELAY.equals(key)) {
             return onAutoInputDelayPrefChanged(preference, newValue);
         } else {
             return false;
@@ -306,9 +306,7 @@ public class SettingsFragment extends BasePreferenceFragment implements
                 .title(R.string.privacy_dialog_title)
                 .content(R.string.privacy_dialog_content)
                 .positiveText(R.string.privacy_dialog_confirm)
-                .onPositive((dialog, which) -> {
-                    SPUtils.setPrivacyPolicyAccepted(mActivity, true);
-                })
+                .onPositive((dialog, which) -> SPUtils.setPrivacyPolicyAccepted(mActivity, true))
                 .cancelable(false)
                 .canceledOnTouchOutside(false)
                 .negativeText(R.string.privacy_dialog_cancel)

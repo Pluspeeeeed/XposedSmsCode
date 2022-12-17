@@ -91,11 +91,7 @@ public class HomeActivity extends BaseActivity {
         if (actionBar != null) {
             actionBar.setTitle(title);
             actionBar.setHomeButtonEnabled(true);
-            if (mCurrentFragment instanceof SettingsFragment) {
-                actionBar.setDisplayHomeAsUpEnabled(false);
-            } else {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-            }
+            actionBar.setDisplayHomeAsUpEnabled(!(mCurrentFragment instanceof SettingsFragment));
         }
     }
 
@@ -131,11 +127,7 @@ public class HomeActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         MenuItem faqItem = menu.findItem(R.id.action_home_faq);
-        if (mCurrentFragment instanceof FaqFragment) {
-            faqItem.setVisible(false);
-        } else {
-            faqItem.setVisible(true);
-        }
+        faqItem.setVisible(!(mCurrentFragment instanceof FaqFragment));
         return true;
     }
 

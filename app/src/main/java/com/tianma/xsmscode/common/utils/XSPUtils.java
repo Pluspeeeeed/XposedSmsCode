@@ -33,6 +33,7 @@ public class XSPUtils {
 
     /**
      * 自动输入延迟(单位s)
+     *
      * @param preferences
      * @return
      */

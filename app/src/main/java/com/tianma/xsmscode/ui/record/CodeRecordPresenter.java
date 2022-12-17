@@ -66,9 +66,7 @@ public class CodeRecordPresenter implements CodeRecordContract.Presenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list -> {
                     // ignore
-                }, throwable -> {
-                    XLog.e("Error occurs when remove SMS records", throwable);
-                });
+                }, throwable -> XLog.e("Error occurs when remove SMS records", throwable));
         mCompositeDisposable.add(disposable);
     }
 }

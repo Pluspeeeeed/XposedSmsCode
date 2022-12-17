@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/action_edit_rule"
-        android:title="@string/edit"/>
+        android:title="@string/edit" />
 
     <item
         android:id="@+id/action_remove_rule"
-        android:title="@string/remove"/>
+        android:title="@string/remove" />
 
 </menu>

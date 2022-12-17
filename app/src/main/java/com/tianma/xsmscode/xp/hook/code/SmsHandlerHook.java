@@ -89,9 +89,6 @@ public class SmsHandlerHook extends BaseHook {
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             // Android 7.0 ~ 10 (api 24 - 29)
             hookConstructor24(classloader);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // Android 4.4 ~ 6.1 (api 19 - 23)
-            hookConstructor19(classloader);
         }
     }
 
@@ -150,12 +147,8 @@ public class SmsHandlerHook extends BaseHook {
     private void hookDispatchIntent(ClassLoader classloader) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             hookDispatchIntent29(classloader);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        } else {
             hookDispatchIntent23(classloader);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            hookDispatchIntent21(classloader);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            hookDispatchIntent19(classloader);
         }
     }
 

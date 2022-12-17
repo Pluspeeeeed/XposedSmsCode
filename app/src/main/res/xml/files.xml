@@ -2,5 +2,5 @@
 <paths>
     <external-path
         name="SmsCode"
-        path="Documents"/>
+        path="Documents" />
 </paths>

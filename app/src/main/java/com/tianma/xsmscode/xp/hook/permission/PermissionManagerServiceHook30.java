@@ -30,7 +30,6 @@ public class PermissionManagerServiceHook30 extends BaseSubHook {
     private static final String CLASS_PERMISSION_CALLBACK = "com.android.server.pm.permission.PermissionManagerServiceInternal.PermissionCallback";
 
 
-
     public PermissionManagerServiceHook30(ClassLoader classLoader) {
         super(classLoader);
     }

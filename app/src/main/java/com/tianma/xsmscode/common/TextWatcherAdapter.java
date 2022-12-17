@@ -6,7 +6,7 @@ import android.text.TextWatcher;
 /**
  * Default text watcher implementation
  */
-public class TextWatcherAdapter implements TextWatcher{
+public class TextWatcherAdapter implements TextWatcher {
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {

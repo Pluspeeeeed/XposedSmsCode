@@ -143,8 +143,8 @@ class RuleListPresenter implements RuleListContract.Presenter {
     @Override
     public void saveRulesToFile(List<SmsCodeRule> rules) {
         Disposable disposable = Observable.fromCallable(() ->
-                EntityStoreManager
-                        .storeEntitiesToFile(EntityType.CODE_RULES, rules))
+                        EntityStoreManager
+                                .storeEntitiesToFile(EntityType.CODE_RULES, rules))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(aBoolean -> {

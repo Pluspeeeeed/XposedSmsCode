@@ -25,17 +25,17 @@ public class SettingsUtils {
 
     /**
      * Get system default SMS app package
+     *
      * @return package name of default sms app
      */
     public static String getDefaultSmsAppPackage(Context context) {
-        String key  = "sms_default_application";
+        String key = "sms_default_application";
         return getSecureString(context, key);
     }
 
     /**
      * Request ignore battery optimization
      */
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("BatteryLife")
     public static void requestIgnoreBatteryOptimization(Context context) {
         Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
@@ -46,7 +46,6 @@ public class SettingsUtils {
     /**
      * Go to ignore battery optimization settings.
      */
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public static void gotoIgnoreBatteryOptimizationSettings(Context context) {
         Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
         context.startActivity(intent);

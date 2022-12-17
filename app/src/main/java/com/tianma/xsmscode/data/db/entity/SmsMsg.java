@@ -157,7 +157,7 @@ public class SmsMsg implements Parcelable {
         this.id = id;
     }
 
-    public static final Parcelable.Creator<SmsMsg> CREATOR = new Parcelable.Creator<SmsMsg>() {
+    public static final Parcelable.Creator<SmsMsg> CREATOR = new Parcelable.Creator<>() {
 
         @Override
         public SmsMsg createFromParcel(Parcel source) {

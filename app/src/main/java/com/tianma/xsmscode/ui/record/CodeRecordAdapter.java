@@ -23,6 +23,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.recyclerview.widget.RecyclerView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -138,13 +139,9 @@ public class CodeRecordAdapter extends RecyclerView.Adapter<CodeRecordAdapter.VH
             }
 
             if (mItemChildCallback != null) {
-                mDetailsView.setOnClickListener(v -> {
-                    mItemChildCallback.onItemChildClicked(mDetailsView, data, position);
-                });
+                mDetailsView.setOnClickListener(v -> mItemChildCallback.onItemChildClicked(mDetailsView, data, position));
 
-                mCheckBox.setOnClickListener(v -> {
-                    mItemChildCallback.onItemChildClicked(mCheckBox, data, position);
-                });
+                mCheckBox.setOnClickListener(v -> mItemChildCallback.onItemChildClicked(mCheckBox, data, position));
             }
         }
     }
