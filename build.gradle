@@ -3,9 +3,7 @@
 buildscript {
     
     repositories {
-        maven {
-            url "https://maven.aliyun.com/repository/public/"
-        }
+        gradlePluginPortal()
         google()
         mavenCentral() // add repository
     }
@@ -23,9 +21,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            url "https://maven.aliyun.com/repository/public/"
-        }
+        gradlePluginPortal()
         google()
         mavenCentral()
         maven {
